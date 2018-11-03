@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+    <style>
+    #container {
+        width: 200px;
+        height: 200px;
+        background: gray;
+        position: relative;
+    }
+    #box {
+        width: 50px;
+        height: 50px;
+        background: brown;
+        position: absolute;
+    }
+    </style>
+    <div id="container">
+        <div id="box"></div>
+    </div>
+    <script>
+        var t = setInterval(moveClockwise, 25);
+        // starting position
+        var posX = 0, posY = 0;
+        // box element
+        var box = document.getElementById("box");
+
+        function moveClockwise(){
+            if ((posX < 150) && (posY == 0)) {
+                posX += 5;
+                box.style.left = posX+"px";
+            }
+            else if ((posX == 150) && (posY < 150)) {
+                posY += 5;
+                box.style.top = posY+"px";
+            }
+            else if ((posX > 0) && (posY == 150)) {
+                posX -= 5;
+                box.style.left = posX+"px";
+            }
+            else if ((posX == 0) && (posY > 0)) {
+                posY -= 5;
+                box.style.top = posY+"px";
+            }
+        }
+    </script>
+</body>
+</html>
